@@ -22,13 +22,21 @@ namespace WeatherService.Controllers
             try
             {
                 //Me conecto a la base para cargar la variable Report
-                var client = new MongoClient("mongodb+srv://Angkor:Casares7735@cluster0-weh6k.gcp.mongodb.net/TestMeLi?retryWrites=true&w=majority");
-                var db = client.GetDatabase("TestMeLi");
-                var pronostico = db.GetCollection<WeatherReport>("Pronostico");
+                MongoClient client = new MongoClient("mongodb+srv://Angkor:Casares7735@cluster0-weh6k.gcp.mongodb.net/TestMeLi?retryWrites=true&w=majority");
+                IMongoDatabase db = client.GetDatabase("TestMeLi");
+                IMongoCollection<WeatherReport> pronostico = db.GetCollection<WeatherReport>("Pronostico");
 
-                var filters = Builders<WeatherReport>.Filter.Eq("_id", BsonValue.Create(ObjectId.Parse("5e00bfcf6f8924822fbab818")));
+                FilterDefinition<WeatherReport> filters = Builders<WeatherReport>.Filter.Eq("_id", new ObjectId("5e0152956f8924822fc767af"));
 
-                report = pronostico.Find(filters).First();
+
+                var idString = "5e0152956f8924822fc767af";
+                var stringFilter = "{ _id: ObjectId('" + idString + "') }";
+                var entityStringFiltered = pronostico.Find(stringFilter);
+             
+
+                report = pronostico.Find(stringFilter).First();
+
+                report = entityStringFiltered.First();
             }
             catch (Exception ex)
             {
@@ -41,9 +49,9 @@ namespace WeatherService.Controllers
             return report;
         }
 
-        //public string GetDay(int id)
-        //{
-        //    return report.WeatherPerDay[id];
-        //}
+        public DayReport GetDay(int id)
+        {
+            return report.WeatherPerDay[id];
+        }
     }
 }
