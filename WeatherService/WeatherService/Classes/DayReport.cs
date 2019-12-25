@@ -6,7 +6,6 @@ using System.Web;
 
 namespace WeatherService.Classes
 {
-    //[BsonIgnoreExtraElements()]
     public class DayReport
     {
         public Weather Weather { get; set; }

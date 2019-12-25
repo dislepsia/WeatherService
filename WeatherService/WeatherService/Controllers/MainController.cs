@@ -45,9 +45,12 @@ namespace WeatherService.Controllers
             return report;
         }
 
-        //public DayReport GetDay(int id)
-        //{
-        //    return report.WeatherPerDay[id];
-        //}
+        public DayReport GetDay(int id)
+        {
+            if (id >= 0 && id <= 3650)
+                return report.WeatherPerDay[id - 1];
+            else
+                return null;
+        }
     }
 }

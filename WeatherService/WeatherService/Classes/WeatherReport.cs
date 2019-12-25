@@ -7,7 +7,6 @@ using System.Web;
 
 namespace WeatherService.Classes
 {
-    //[BsonIgnoreExtraElements()]
     public class WeatherReport
     {
         [BsonRepresentation(BsonType.ObjectId)]
