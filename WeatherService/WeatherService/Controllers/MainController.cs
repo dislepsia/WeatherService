@@ -26,17 +26,13 @@ namespace WeatherService.Controllers
                 IMongoDatabase db = client.GetDatabase("TestMeLi");
                 IMongoCollection<WeatherReport> pronostico = db.GetCollection<WeatherReport>("Pronostico");
 
-                FilterDefinition<WeatherReport> filters = Builders<WeatherReport>.Filter.Eq("_id", new ObjectId("5e0152956f8924822fc767af"));
+                FilterDefinition<WeatherReport> filters = Builders<WeatherReport>.Filter.Eq("_id", new ObjectId("5e0390e96f8924822ff7fb83"));
+                report = pronostico.Find(filters).First();
 
-
-                var idString = "5e0152956f8924822fc767af";
-                var stringFilter = "{ _id: ObjectId('" + idString + "') }";
-                var entityStringFiltered = pronostico.Find(stringFilter);
-             
-
-                report = pronostico.Find(stringFilter).First();
-
-                report = entityStringFiltered.First();
+                //var idString = "5e015f386f8924822fc8a120";
+                //var stringFilter = "{ _id:ObjectId('" + idString + "') }";
+                //var entityStringFiltered = pronostico.Find(stringFilter);
+                //report = entityStringFiltered.First();
             }
             catch (Exception ex)
             {
@@ -49,9 +45,9 @@ namespace WeatherService.Controllers
             return report;
         }
 
-        public DayReport GetDay(int id)
-        {
-            return report.WeatherPerDay[id];
-        }
+        //public DayReport GetDay(int id)
+        //{
+        //    return report.WeatherPerDay[id];
+        //}
     }
 }

@@ -14,8 +14,8 @@ namespace WeatherService.Classes
             NORMAL
         }
 
-        public double RainIntensity { get; }
-        public WeatherType Type { get; }
+        public double RainIntensity { get; set; }
+        public WeatherType Type { get; set; }
 
         private Weather(WeatherType type, double rainIntensity)
         {

@@ -7,24 +7,24 @@ using System.Web;
 
 namespace WeatherService.Classes
 {
-    [BsonIgnoreExtraElements()]
+    //[BsonIgnoreExtraElements()]
     public class WeatherReport
     {
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
-        public int DraughtDays { get; }
-        public int RainDays { get; }
-        public double MaxRainIntensity { get; }
-        public int MaxIntensityDay { get; }
-        public int OptimumDays { get; }
-        public List<DayReport> WeatherPerDay { get; }
+        public int DraughtDays { get; set; }
+        public int RainDays { get; set; }
+        public double MaxRainIntensity { get; set; }
+        public int MaxIntensityDay { get; set; }
+        public int OptimumDays { get; set; }
+        public List<DayReport> WeatherPerDay { get; set; }
 
         public WeatherReport(int draughtDays, int rainDays, double maxRainIntensity, int maxIntensityDay, int optimumDays, List<DayReport> weatherPerDay)
         {
             _id = "";
             DraughtDays = draughtDays;
             RainDays = rainDays;
-            MaxRainIntensity = maxRainIntensity;
+            MaxRainIntensity = Math.Round(maxRainIntensity, 2); ;
             MaxIntensityDay = maxIntensityDay;
             OptimumDays = optimumDays;
             WeatherPerDay = weatherPerDay;
