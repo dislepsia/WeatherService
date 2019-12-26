@@ -121,7 +121,7 @@
     <Compile Include="Classes\SolarSystem.cs" />
     <Compile Include="Classes\Weather.cs" />
     <Compile Include="Classes\WeatherReport.cs" />
-    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -129,6 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\weatherapimeli - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\weatherapimeli - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\weatherapimeli - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\WeatherService.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
