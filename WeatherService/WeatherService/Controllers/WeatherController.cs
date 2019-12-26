@@ -26,7 +26,7 @@ namespace WeatherService.Controllers
                 IMongoDatabase db = client.GetDatabase("TestMeLi");
                 IMongoCollection<WeatherReport> pronostico = db.GetCollection<WeatherReport>("Pronostico");
 
-                FilterDefinition<WeatherReport> filters = Builders<WeatherReport>.Filter.Eq("_id", new ObjectId("5e040a626f8924822f01df8f"));
+                FilterDefinition<WeatherReport> filters = Builders<WeatherReport>.Filter.Eq("_id", new ObjectId("5e04c4ad6f8924822f113193"));
                 report = pronostico.Find(filters).First();
 
                 //var idString = "5e015f386f8924822fc8a120";
